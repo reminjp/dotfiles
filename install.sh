@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd `dirname $0`
-. ./colors.txt
+. ./colors.sh
 
 packages=(
   # Development

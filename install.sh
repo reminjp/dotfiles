@@ -1,17 +1,17 @@
 #!/bin/bash
 
-cd `dirname $0`
+cd $(dirname $0)
 . ./colors.sh
 
 packages=(
   # Development
-  "default-jdk"
-  "git"
-  "make"
-  "nim"
-  "openssl"
-  "ruby"
-  "vim"
+  'default-jdk'
+  'git'
+  'make'
+  'nim'
+  'openssl'
+  'ruby'
+  'vim'
 )
 
 echo "${cyan}Starting apt install.${reset}"

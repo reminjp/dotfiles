@@ -1,0 +1,7 @@
+#!/bin/bash
+
+readonly PYTHON='python3'
+# sudo apt update
+# sudo apt install -y ${PYTHON}
+mkdir -p ~/bin
+ln -s /usr/bin/${PYTHON} ~/bin/python

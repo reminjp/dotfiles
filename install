@@ -14,11 +14,11 @@ packages=(
   'vim'
 )
 
-echo "${cyan}Starting apt install.${reset}"
+echo "${CYAN}Starting apt install.${RESET}"
 for e in ${packages[@]}; do
   sudo apt install -y ${e}
 done
-echo "${cyan}Starting apt update.${reset}"
+echo "${CYAN}Starting apt update.${RESET}"
 sudo apt update
-echo "${cyan}Starting apt upgrade.${reset}"
+echo "${CYAN}Starting apt upgrade.${RESET}"
 sudo apt upgrade -y

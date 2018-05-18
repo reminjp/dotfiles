@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sudo apt update
+sudo apt install git build-essential libssl-dev
+git clone -c core.symlinks=true https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone -c core.symlinks=true https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >>~/.profile
+echo 'eval "$(rbenv init -)"' >>~/.profile

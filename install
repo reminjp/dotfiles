@@ -8,9 +8,13 @@ packages=(
   'default-jdk'
   'git'
   'make'
+  'golang'
   'nim'
   'openssl'
+  'valgrind'
   'vim'
+  # Utilities
+  'p7zip'
 )
 
 echo "${CYAN}Starting apt install.${RESET}"

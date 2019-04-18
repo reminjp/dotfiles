@@ -1,0 +1,14 @@
+[alias]
+	logg = log --graph --pretty=oneline
+[color]
+	ui = auto
+[core]
+	autocrlf = input
+	editor = vim
+	symlinks = true
+[push]
+	default = simple
+[user]
+	email = rdrgn@users.noreply.github.com
+	name = remin
+	username = rdrgn

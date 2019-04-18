@@ -1,6 +1,6 @@
 DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 EXCLUSIONS := .DS_Store .git .gitignore .gitkeep .gitmodules
-DOTFILES   := $(filter-out $(EXCLUSIONS), $(wildcard .??*) bin)
+DOTFILES   := $(sort $(filter-out $(EXCLUSIONS), $(wildcard .??*) bin))
 
 .DEFAULT_GOAL := help
 

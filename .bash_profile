@@ -8,19 +8,29 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Homebrew
 if [ -d '/home/linuxbrew/.linuxbrew/bin' ]; then
-  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+  PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 fi
 if [ -d "$HOME/.linuxbrew/bin" ]; then
-  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  PATH="$HOME/.linuxbrew/bin:$PATH"
 fi
 
 # Rust
 if [ -d "$HOME/.cargo/bin" ]; then
-  export PATH="$HOME/.cargo/bin:$PATH"
+  PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 # Ruby
 if [ -d "$HOME/.rbenv/bin" ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
+  PATH="$HOME/.rbenv/bin:$PATH"
+fi
+if type rbenv >/dev/null 2>&1; then
   eval "$(rbenv init -)"
+fi
+
+# Node
+if [ -d "$HOME/.nodenv/bin" ]; then
+  PATH="$HOME/.nodenv/bin:$PATH"
+fi
+if type nodenv >/dev/null 2>&1; then
+  eval "$(nodenv init -)"
 fi

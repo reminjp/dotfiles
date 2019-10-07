@@ -34,3 +34,9 @@ fi
 if type nodenv >/dev/null 2>&1; then
   eval "$(nodenv init -)"
 fi
+
+# WSL
+if type cmd.exe >/dev/null 2>&1; then
+  # X server
+  export DISPLAY=127.0.0.1:0.0
+fi

@@ -6,6 +6,10 @@
 	autocrlf = input
 	editor = vim
 	symlinks = true
+[merge]
+	ff = false
+[pull]
+	ff = only
 [push]
 	default = simple
 [user]

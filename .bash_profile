@@ -35,6 +35,11 @@ if type nodenv >/dev/null 2>&1; then
   eval "$(nodenv init -)"
 fi
 
+# Flutter
+if [ -d "$(ghq root)/github.com/flutter/flutter/bin" ]; then
+  PATH="$(ghq root)/github.com/flutter/flutter/bin:$PATH"
+fi
+
 # WSL
 if type cmd.exe >/dev/null 2>&1; then
   # X server

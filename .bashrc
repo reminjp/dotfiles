@@ -43,7 +43,7 @@ esac
 unset color_prompt debian_chroot
 
 # Aliases
-if [ -x /usr/bin/dircolors ]; then
+if type dircolors >/dev/null 2>&1; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
   alias dir='dir --color=auto'
@@ -51,6 +51,12 @@ if [ -x /usr/bin/dircolors ]; then
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
+fi
+if type gdircolors >/dev/null 2>&1; then
+  test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
+  alias ls='gls --color=auto'
+  alias dir='gdir --color=auto'
+  alias vdir='gvdir --color=auto'
 fi
 alias ll='ls -alF'
 alias la='ls -A'

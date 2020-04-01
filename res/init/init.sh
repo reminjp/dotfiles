@@ -29,4 +29,10 @@ fi
 brew doctor
 
 # Install Homebrew formulae
-brew install git
+if !(type git > /dev/null 2>&1); then
+  brew install git
+fi
+
+if !(type dircolors > /dev/null 2>&1 || type gdircolors > /dev/null 2>&1); then
+  brew install coreutils
+fi

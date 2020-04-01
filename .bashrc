@@ -62,3 +62,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias a='./a.out'
+
+# Functions
+repo() {
+  declare -r REPOSITORY_NAME="$(ghq list | fzf --layout=reverse --preview="ls -a $(ghq root)/{}")"
+  [ -n "${REPOSITORY_NAME}" ] && cd "$(ghq root)/${REPOSITORY_NAME}"
+}

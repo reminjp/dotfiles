@@ -36,3 +36,11 @@ fi
 if !(type dircolors > /dev/null 2>&1 || type gdircolors > /dev/null 2>&1); then
   brew install coreutils
 fi
+
+if !(type ghq > /dev/null 2>&1); then
+  brew install ghq
+fi
+
+if !(type fzf > /dev/null 2>&1); then
+  brew install fzf
+fi

@@ -44,3 +44,7 @@ fi
 if !(type fzf > /dev/null 2>&1); then
   brew install fzf
 fi
+
+if [ $(get_os_name) = 'mac' -a ! -f $(brew --prefix)/etc/bash_completion ]; then
+  brew install bash-completion
+fi

@@ -60,10 +60,13 @@ if type gdircolors >/dev/null 2>&1; then
   alias dir='gdir --color=auto'
   alias vdir='gvdir --color=auto'
 fi
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
 alias a='./a.out'
+alias g++17='g++ -std=c++17'
 
 # Functions
 repo() {

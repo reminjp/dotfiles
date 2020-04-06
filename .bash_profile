@@ -40,6 +40,9 @@ if [ -d "$(ghq root)/github.com/flutter/flutter/bin" ]; then
   PATH="$(ghq root)/github.com/flutter/flutter/bin:$PATH"
 fi
 
+# Mac OS
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # WSL
 if type cmd.exe >/dev/null 2>&1; then
   # X server

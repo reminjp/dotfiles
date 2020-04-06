@@ -18,7 +18,7 @@ shopt -s checkwinsize
 
 # Enable programmable completion
 if ! shopt -oq posix; then
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  if type brew >/dev/null 2>&1 && [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   elif [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion

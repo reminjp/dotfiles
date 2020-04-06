@@ -29,24 +29,24 @@ fi
 
 # Prompt
 case "$TERM" in
-  xterm-color | *-256color) color_prompt=yes ;;
+  xterm-color | *-256color) declare COLOR_PROMPT=yes ;;
 esac
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-  debian_chroot=$(cat /etc/debian_chroot)
+if [ -z "${DEBIAN_CHROOT:-}" ] && [ -r /etc/DEBIAN_CHROOT ]; then
+  declare DEBIAN_CHROOT=$(cat /etc/DEBIAN_CHROOT)
 fi
-if [ "$color_prompt" = yes ]; then
-  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+if [ "$COLOR_PROMPT" = yes ]; then
+  PS1='${DEBIAN_CHROOT:+($DEBIAN_CHROOT)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  PS1='${DEBIAN_CHROOT:+($DEBIAN_CHROOT)}\u@\h:\w\$ '
 fi
 case "$TERM" in
-  xterm* | rxvt*) PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" ;;
+  xterm* | rxvt*) PS1="\[\e]0;${DEBIAN_CHROOT:+($DEBIAN_CHROOT)}\u@\h: \w\a\]$PS1" ;;
 esac
-unset color_prompt debian_chroot
+unset COLOR_PROMPT DEBIAN_CHROOT
 
 # Aliases
 if type dircolors >/dev/null 2>&1; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
   alias dir='dir --color=auto'
   alias vdir='vdir --color=auto'
@@ -55,7 +55,7 @@ if type dircolors >/dev/null 2>&1; then
   alias egrep='egrep --color=auto'
 fi
 if type gdircolors >/dev/null 2>&1; then
-  test -r ~/.dircolors && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
+  [ -r ~/.dircolors ] && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
   alias ls='gls --color=auto'
   alias dir='gdir --color=auto'
   alias vdir='gvdir --color=auto'

@@ -5,19 +5,19 @@ get_os_name() {
     *linux*)
       if [ -e /etc/debian_version ] || [ -e /etc/debian_release ]; then
         if [ -e /etc/lsb-release ]; then
-          os_name='ubuntu'
+          declare -r OS_NAME='ubuntu'
         else
-          os_name='debian'
+          declare -r OS_NAME='debian'
         fi
       else
-        os_name='linux'
+        declare -r OS_NAME='linux'
       fi
       ;;
     *darwin*)
-      os_name='mac'
+      declare -r OS_NAME='mac'
       ;;
     *)
-      os_name='unknown'
+      declare -r OS_NAME='unknown'
       ;;
   esac
   echo ${os_name}

@@ -1,23 +1,24 @@
 #!/bin/bash
 
 get_os_name() {
+  local os_name
   case $(uname | tr '[:upper:]' '[:lower:]') in
     *linux*)
       if [ -e /etc/debian_version ] || [ -e /etc/debian_release ]; then
         if [ -e /etc/lsb-release ]; then
-          declare -r OS_NAME='ubuntu'
+          os_name='ubuntu'
         else
-          declare -r OS_NAME='debian'
+          os_name='debian'
         fi
       else
-        declare -r OS_NAME='linux'
+        os_name='linux'
       fi
       ;;
     *darwin*)
-      declare -r OS_NAME='mac'
+      os_name='mac'
       ;;
     *)
-      declare -r OS_NAME='unknown'
+      os_name='unknown'
       ;;
   esac
   echo ${os_name}

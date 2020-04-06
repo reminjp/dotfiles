@@ -8,8 +8,8 @@ cd $(dirname $0)
 if type brew >/dev/null 2>&1; then
   echo "${BLUE}Info:${RESET} Homebrew is already installed."
 else
-  declare OS_NAME=$(get_os_name)
-  case ${OS_NAME} in
+  declare os_name=$(get_os_name)
+  case ${os_name} in
     'ubuntu' | 'debian')
       # https://docs.brew.sh/Homebrew-on-Linux
       sudo apt install build-essential curl file git
@@ -20,11 +20,11 @@ else
       /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
       ;;
     *)
-      echo "${RED}Error:${RESET} Unsupported OS: ${OS_NAME}"
+      echo "${RED}Error:${RESET} Unsupported OS: ${os_name}"
       exit 1
       ;;
   esac
-  unset OS_NAME
+  unset os_name
 fi
 
 brew doctor

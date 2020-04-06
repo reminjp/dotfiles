@@ -28,21 +28,22 @@ if ! shopt -oq posix; then
 fi
 
 # Prompt
+declare color_prompt debian_chroot
 case "$TERM" in
-  xterm-color | *-256color) declare COLOR_PROMPT=yes ;;
+  xterm-color | *-256color) color_prompt=1 ;;
 esac
-if [ -z "${DEBIAN_CHROOT:-}" ] && [ -r /etc/DEBIAN_CHROOT ]; then
-  declare DEBIAN_CHROOT=$(cat /etc/DEBIAN_CHROOT)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+  debian_chroot=$(cat /etc/debian_chroot)
 fi
-if [ "$COLOR_PROMPT" = yes ]; then
-  PS1='${DEBIAN_CHROOT:+($DEBIAN_CHROOT)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+if [ "$color_prompt" = 1 ]; then
+  PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-  PS1='${DEBIAN_CHROOT:+($DEBIAN_CHROOT)}\u@\h:\w\$ '
+  PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 case "$TERM" in
-  xterm* | rxvt*) PS1="\[\e]0;${DEBIAN_CHROOT:+($DEBIAN_CHROOT)}\u@\h: \w\a\]$PS1" ;;
+  xterm* | rxvt*) PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1" ;;
 esac
-unset COLOR_PROMPT DEBIAN_CHROOT
+unset color_prompt debian_chroot
 
 # Aliases
 if type dircolors >/dev/null 2>&1; then

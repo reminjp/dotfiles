@@ -40,6 +40,16 @@ if [ -d "$(ghq root)/github.com/flutter/flutter/bin" ]; then
   PATH="$(ghq root)/github.com/flutter/flutter/bin:$PATH"
 fi
 
+# Android SDK
+if [ -d "$HOME/Library/Android/sdk" ]; then
+  # Mac OS
+  export ANDROID_HOME="$HOME/Library/Android/sdk"
+  PATH="$ANDROID_HOME/emulator:$PATH"
+  PATH="$ANDROID_HOME/tools:$PATH"
+  PATH="$ANDROID_HOME/tools/bin:$PATH"
+  PATH="$ANDROID_HOME/platform-tools:$PATH"
+fi
+
 # Mac OS
 export BASH_SILENCE_DEPRECATION_WARNING=1
 

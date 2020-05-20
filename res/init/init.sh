@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd $(dirname $0)
-. ../util/colors.sh
+. ../util/color.sh
 . ../util/os.sh
 
 # Install Homebrew

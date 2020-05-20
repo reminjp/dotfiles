@@ -1,7 +1,7 @@
 #!/bin/bash
 
 get_os_name() {
-  local os_name
+  local os_name='unknown'
   case $(uname | tr '[:upper:]' '[:lower:]') in
     *linux*)
       if [ -e /etc/debian_version ] || [ -e /etc/debian_release ]; then
@@ -17,9 +17,6 @@ get_os_name() {
     *darwin*)
       os_name='mac'
       ;;
-    *)
-      os_name='unknown'
-      ;;
   esac
-  echo ${os_name}
+  echo "$os_name"
 }

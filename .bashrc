@@ -67,6 +67,6 @@ alias g++17='g++ -std=c++17'
 
 # functions
 repo() {
-  declare -r REPOSITORY_NAME="$(ghq list | fzf --layout=reverse --preview="ls -a $(ghq root)/{}")"
-  [ -n "${REPOSITORY_NAME}" ] && cd "$(ghq root)/${REPOSITORY_NAME}"
+  local repository_name="$(ghq list | fzf --layout=reverse --preview="ls -a $(ghq root)/{}")"
+  [ -n "$repository_name" ] && cd "$(ghq root)/$repository_name"
 }

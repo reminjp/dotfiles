@@ -1,22 +1,22 @@
-# If not running interactively, don't do anything.
+# run only if the shell is interactive
 case $- in
   *i*) ;;
   *) return ;;
 esac
 
-# History
+# history
 HISTCONTROL=ignoreboth
 shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-# Window size
+# to check window size
 shopt -s checkwinsize
 
-# Enable lesspipe
+# enable lesspipe
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Enable programmable completion
+# enable bash completion
 if ! shopt -oq posix; then
   if type brew >/dev/null 2>&1 && [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
@@ -27,7 +27,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Prompt
+# prompt
 declare color_prompt debian_chroot
 case "$TERM" in
   xterm-color | *-256color) color_prompt=1 ;;
@@ -45,7 +45,7 @@ case "$TERM" in
 esac
 unset color_prompt debian_chroot
 
-# Aliases
+# aliases
 if type dircolors >/dev/null 2>&1; then
   [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
@@ -65,7 +65,7 @@ fi
 alias a='./a.out'
 alias g++17='g++ -std=c++17'
 
-# Functions
+# functions
 repo() {
   declare -r REPOSITORY_NAME="$(ghq list | fzf --layout=reverse --preview="ls -a $(ghq root)/{}")"
   [ -n "${REPOSITORY_NAME}" ] && cd "$(ghq root)/${REPOSITORY_NAME}"

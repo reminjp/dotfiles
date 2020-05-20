@@ -4,7 +4,7 @@ cd $(dirname $0)
 . ../util/color.sh
 . ../util/os.sh
 
-# Install Homebrew
+# install Homebrew
 if type brew >/dev/null 2>&1; then
   echo "${BLUE}Info:${RESET} Homebrew is already installed."
 else
@@ -29,7 +29,7 @@ fi
 
 brew doctor
 
-# Install Homebrew formulae
+# install Homebrew formulae
 if [ ! -f "$(brew --prefix)/etc/bash_completion" ]; then
   brew install bash-completion
 fi

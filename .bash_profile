@@ -4,6 +4,7 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
+# path
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Homebrew

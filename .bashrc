@@ -28,7 +28,7 @@ if ! shopt -oq posix; then
 fi
 
 # prompt
-prompt_command() {
+__prompt_command() {
   # get the status first of all
   local status_code=$? status_name
   case $status_code in
@@ -99,7 +99,7 @@ prompt_command() {
   fi
   PS1+='\$ '
 }
-PROMPT_COMMAND=prompt_command
+PROMPT_COMMAND=__prompt_command
 
 # aliases
 if type dircolors &>/dev/null; then

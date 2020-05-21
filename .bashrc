@@ -67,6 +67,7 @@ __prompt_command() {
     156) status_name='SIGINFO' ;;
     157) status_name='SIGUSR1' ;;
     158) status_name='SIGUSR2' ;;
+    *) status_name='error' ;;
   esac
 
   # colors
@@ -89,15 +90,15 @@ __prompt_command() {
 
   # update PS1
   PS1=''
-  if [ $status_code -ne 0 ]; then
-    PS1+="$color_red$status_code ($status_name)$color_reset\n"
-  fi
   PS1+='${debian_chroot:+($debian_chroot)}'
   PS1+="$color_green\\u@\\h$color_reset:$color_blue\\w$color_reset"
   if type __git_ps1 &>/dev/null; then
-    PS1+=$(__git_ps1 ":$color_yellow%s$color_reset")
+    PS1+=$(__git_ps1 " $color_yellow%s$color_reset")
   fi
-  PS1+='\$ '
+  if [ $status_code -ne 0 ]; then
+    PS1+=" $color_red$status_code ($status_name)$color_reset"
+  fi
+  PS1+='\n\$ '
 }
 PROMPT_COMMAND=__prompt_command
 

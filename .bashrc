@@ -18,7 +18,7 @@ shopt -s checkwinsize
 
 # enable bash completion
 if ! shopt -oq posix; then
-  if type brew >/dev/null 2>&1 && [ -f $(brew --prefix)/etc/bash_completion ]; then
+  if type brew &>/dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   elif [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -94,7 +94,7 @@ prompt_command() {
   fi
   PS1+='${debian_chroot:+($debian_chroot)}'
   PS1+="$color_green\\u@\\h$color_reset:$color_blue\\w$color_reset"
-  if type __git_ps1 >/dev/null 2>&1; then
+  if type __git_ps1 &>/dev/null; then
     PS1+="$color_yellow$(__git_ps1)$color_reset"
   fi
   PS1+='\$ '
@@ -102,7 +102,7 @@ prompt_command() {
 PROMPT_COMMAND=prompt_command
 
 # aliases
-if type dircolors >/dev/null 2>&1; then
+if type dircolors &>/dev/null; then
   [ -r ~/.dircolors ] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
   alias dir='dir --color=auto'
@@ -111,7 +111,7 @@ if type dircolors >/dev/null 2>&1; then
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
 fi
-if type gdircolors >/dev/null 2>&1; then
+if type gdircolors &>/dev/null; then
   [ -r ~/.dircolors ] && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
   alias ls='gls --color=auto'
   alias dir='gdir --color=auto'

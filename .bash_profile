@@ -23,7 +23,8 @@ type rbenv &>/dev/null && eval "$(rbenv init -)"
 type nodenv &>/dev/null && eval "$(nodenv init -)"
 
 # Flutter
-[ -d "$(ghq root)/github.com/flutter/flutter/bin" ] && PATH="$(ghq root)/github.com/flutter/flutter/bin:$PATH"
+type ghq &>/dev/null && [ -d "$(ghq root)/github.com/flutter/flutter/bin" ] &&
+  PATH="$(ghq root)/github.com/flutter/flutter/bin:$PATH"
 
 # Android SDK
 if [ -d "$HOME/Library/Android/sdk" ]; then

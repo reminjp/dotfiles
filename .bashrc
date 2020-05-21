@@ -95,7 +95,7 @@ prompt_command() {
   PS1+='${debian_chroot:+($debian_chroot)}'
   PS1+="$color_green\\u@\\h$color_reset:$color_blue\\w$color_reset"
   if type __git_ps1 &>/dev/null; then
-    PS1+="$color_yellow$(__git_ps1)$color_reset"
+    PS1+=$(__git_ps1 ":$color_yellow%s$color_reset")
   fi
   PS1+='\$ '
 }

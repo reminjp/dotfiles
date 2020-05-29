@@ -98,6 +98,7 @@ __prompt_command() {
   if [ $status_code -ne 0 ]; then
     PS1+=" $color_red$status_code ($status_name)$color_reset"
   fi
+  PS1+=' \t'
   PS1+='\n\$ '
 }
 PROMPT_COMMAND=__prompt_command

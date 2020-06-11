@@ -74,6 +74,7 @@ __prompt_command() {
   local color_green color_blue color_warning color_red color_reset
   case "$TERM" in
     xterm-color | *-256color)
+      color_white=$(tput bold)
       color_red=$(tput setaf 1)$(tput bold)
       color_green=$(tput setaf 2)$(tput bold)
       color_yellow=$(tput setaf 3)$(tput bold)
@@ -90,15 +91,15 @@ __prompt_command() {
 
   # update PS1
   PS1=''
+  PS1+="$color_white\\t$color_reset :: "
   PS1+='${debian_chroot:+($debian_chroot)}'
-  PS1+="$color_green\\u@\\h$color_reset:$color_blue\\w$color_reset"
+  PS1+="$color_green\\u@\\h$color_reset :: $color_blue\\w$color_reset"
   if type __git_ps1 &>/dev/null; then
-    PS1+=$(__git_ps1 " $color_yellow%s$color_reset")
+    PS1+=$(__git_ps1 " :: $color_yellow%s$color_reset")
   fi
   if [ $status_code -ne 0 ]; then
-    PS1+=" $color_red$status_code ($status_name)$color_reset"
+    PS1+=" :: $color_red$status_code ($status_name)$color_reset"
   fi
-  PS1+=' \t'
   PS1+='\n\$ '
 }
 PROMPT_COMMAND=__prompt_command

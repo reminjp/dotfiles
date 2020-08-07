@@ -35,6 +35,9 @@ if [ -d "$HOME/Library/Android/sdk" ]; then
   PATH="$ANDROID_HOME/platform-tools:$PATH"
 fi
 
+# Pipenv
+export PIPENV_VENV_IN_PROJECT=1
+
 # Mac OS
 # suppress the warning "The default interactive shell is now zsh."
 export BASH_SILENCE_DEPRECATION_WARNING=1

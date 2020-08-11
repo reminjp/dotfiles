@@ -37,6 +37,7 @@ fi
 
 # Pipenv
 export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_IGNORE_VIRTUALENVS=1
 
 # Mac OS
 # suppress the warning "The default interactive shell is now zsh."

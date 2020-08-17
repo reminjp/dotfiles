@@ -129,3 +129,6 @@ repo() {
   local repository_name="$(ghq list | fzf --layout=reverse --preview="ls -a $(ghq root)/{}")"
   [ -n "$repository_name" ] && cd "$(ghq root)/$repository_name"
 }
+
+# Poetry
+poetry completions bash > $(brew --prefix)/etc/bash_completion.d/poetry.bash-completion

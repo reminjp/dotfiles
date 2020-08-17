@@ -39,6 +39,9 @@ fi
 export PIPENV_VENV_IN_PROJECT=1
 export PIPENV_IGNORE_VIRTUALENVS=1
 
+# Poetry
+export POETRY_VIRTUALENVS_IN_PROJECT=true
+
 # Mac OS
 # suppress the warning "The default interactive shell is now zsh."
 export BASH_SILENCE_DEPRECATION_WARNING=1

@@ -133,4 +133,7 @@ repo() {
 }
 
 # Poetry
-poetry completions bash > $(brew --prefix)/etc/bash_completion.d/poetry.bash-completion
+type brew &>/dev/null &&
+  type poetry &>/dev/null &&
+  [ -d "$(brew --prefix)/etc/bash_completion.d/poetry.bash-completion" ] &&
+  poetry completions bash >$(brew --prefix)/etc/bash_completion.d/poetry.bash-completion

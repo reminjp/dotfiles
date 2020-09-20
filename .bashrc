@@ -122,7 +122,9 @@ if type gdircolors &>/dev/null; then
 fi
 
 alias a='./a.out'
-alias g++17='g++ -std=c++17'
+alias g='g++ -std=c++17'
+# AtCoder Library
+alias acl='python3 $(ghq root)/github.com/atcoder/ac-library/expander.py'
 
 # functions
 repo() {

@@ -11,6 +11,11 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 [ -d '/home/linuxbrew/.linuxbrew/bin' ] && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 [ -d "$HOME/.linuxbrew/bin" ] && PATH="$HOME/.linuxbrew/bin:$PATH"
 
+# C++
+# AtCoder Library
+type ghq &>/dev/null && [ -d "$(ghq root)/github.com/atcoder/ac-library" ] &&
+  export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$(ghq root)/github.com/atcoder/ac-library"
+
 # Rust
 [ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
 

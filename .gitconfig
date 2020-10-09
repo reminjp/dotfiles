@@ -8,6 +8,8 @@
 	autocrlf = input
 	editor = vim
 	symlinks = true
+[init]
+	defaultBranch = master
 [merge]
 	ff = false
 [pull]

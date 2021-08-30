@@ -11,9 +11,6 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 [ -d '/home/linuxbrew/.linuxbrew/bin' ] && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 [ -d "$HOME/.linuxbrew/bin" ] && PATH="$HOME/.linuxbrew/bin:$PATH"
 
-# asdf
-[ -f "$(brew --prefix)/libexec/asdf.sh" ] && . "$(brew --prefix asdf)/libexec/asdf.sh"
-
 # C++
 # AtCoder Library
 type ghq &>/dev/null && [ -d "$(ghq root)/github.com/atcoder/ac-library" ] &&
@@ -49,6 +46,11 @@ export PIPENV_IGNORE_VIRTUALENVS=1
 
 # Poetry
 export POETRY_VIRTUALENVS_IN_PROJECT=true
+
+# asdf
+# WIP
+# type brew &>/dev/null && [ -f "$(brew --prefix)/libexec/asdf.sh" ] &&
+  . "$(brew --prefix asdf)/libexec/asdf.sh"
 
 # Mac OS
 # suppress the warning "The default interactive shell is now zsh."

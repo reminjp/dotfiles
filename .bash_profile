@@ -47,6 +47,10 @@ export PIPENV_IGNORE_VIRTUALENVS=1
 # Poetry
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 
+# Google Cloud SDK
+. "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
+. "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+
 # asdf
 # WIP
 # type brew &>/dev/null && [ -f "$(brew --prefix)/libexec/asdf.sh" ] &&

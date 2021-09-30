@@ -52,8 +52,7 @@ export POETRY_VIRTUALENVS_IN_PROJECT=true
 . "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
 
 # asdf
-# WIP
-# type brew &>/dev/null && [ -f "$(brew --prefix)/libexec/asdf.sh" ] &&
+type brew &>/dev/null && [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] &&
   . "$(brew --prefix asdf)/libexec/asdf.sh"
 
 # Mac OS

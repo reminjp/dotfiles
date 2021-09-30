@@ -1,8 +1,8 @@
 #!/bin/bash
 
 cd $(dirname $0)
-. ../util/color.sh
-. ../util/os.sh
+. ../utils/color.sh
+. ../utils/os.sh
 
 # install Homebrew
 if type brew &>/dev/null; then

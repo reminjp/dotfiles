@@ -25,13 +25,22 @@ else
       ;;
   esac
   unset os_name
+  brew doctor
 fi
 
-brew doctor
-
 # install Homebrew formulae
+# install essential commands
 [ ! -f "$(brew --prefix)/etc/bash_completion" ] && brew install bash-completion
 !(type dircolors &>/dev/null || type gdircolors &>/dev/null) && brew install coreutils
 !(type git &>/dev/null) && brew install git
 !(type ghq &>/dev/null) && brew install ghq
 !(type fzf &>/dev/null) && brew install fzf
+
+# install asdf
+# http://asdf-vm.com/
+!(type asdf &>/dev/null) && brew install asdf
+if type asdf &>/dev/null; then
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+fi
+
+exit 0

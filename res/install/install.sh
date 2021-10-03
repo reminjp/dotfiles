@@ -39,8 +39,5 @@ fi
 # install asdf
 # http://asdf-vm.com/
 !(type asdf &>/dev/null) && brew install asdf
-if type asdf &>/dev/null; then
-  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-fi
 
 exit 0

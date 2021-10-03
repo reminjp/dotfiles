@@ -16,6 +16,10 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 type ghq &>/dev/null && [ -d "$(ghq root)/github.com/atcoder/ac-library" ] &&
   export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$(ghq root)/github.com/atcoder/ac-library"
 
+# Go
+type go &>/dev/null && [ -d "$(go env GOPATH)/bin" ] &&
+  PATH="$(go env GOPATH)/bin:$PATH"
+
 # Rust
 [ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
 

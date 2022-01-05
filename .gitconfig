@@ -7,6 +7,7 @@
 [core]
 	autocrlf = input
 	editor = vim
+	excludesfile = ~/.gitignore_global
 	symlinks = true
 [init]
 	defaultBranch = master

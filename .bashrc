@@ -127,9 +127,24 @@ alias g='g++ -std=c++17'
 alias acl='python3 $(ghq root)/github.com/atcoder/ac-library/expander.py'
 
 # functions
-repo() {
-  local repository_name="$(ghq list | fzf --layout=reverse --preview="ls -a $(ghq root)/{}")"
-  [ -n "$repository_name" ] && cd "$(ghq root)/$repository_name"
+# fuzzy finder
+f() {
+  case $1 in
+    'git')
+      local repository_name="$(ghq list | fzf --layout=reverse --preview="ls -a $(ghq root)/{}")"
+      [ -n "$repository_name" ] && cd "$(ghq root)/$repository_name"
+      ;;
+    'ssh')
+      local host_name="$(grep -Ei '^Host\s+.+' $HOME/.ssh/config | grep -Ev '[*?]' | awk '{print $2}' | sort | fzf --layout=reverse --preview="grep -A 61 -B 2 --color=always {} $HOME/.ssh/config")"
+      [ -n "$host_name" ] && echo "> ssh $host_name" && ssh "$host_name"
+      ;;
+    *)
+      echo 'Usage: f [command]'
+      echo 'Commands:'
+      echo '  git  Open a git repository.'
+      echo '  ssh  Login to a remote machine.'
+      ;;
+  esac
 }
 
 # Poetry

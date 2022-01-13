@@ -49,4 +49,4 @@ help: ## Display this information.
 	@echo 'Usage: make [command]'
 	@echo 'Commands:'
 	@grep -E '^[A-Za-z0-9_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
-		| awk 'BEGIN {FS = ":.*?## "}; {printf "%-14s%s\n", $$1, $$2}'
+		| awk 'BEGIN {FS = ":.*?## "}; {printf "  %-14s%s\n", $$1, $$2}'

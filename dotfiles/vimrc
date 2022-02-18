@@ -1,4 +1,4 @@
-" Color Scheme
+" color scheme
 set background=dark
 set t_ut=
 set termguicolors
@@ -6,7 +6,7 @@ colorscheme molokai
 "let g:molokai_original = 1
 "let g:rehash256 = 1
 
-" Editor
+" editor
 set encoding=utf-8 fileencoding=utf-8 nobomb  " Use UTF-8 without BOM.
 set expandtab softtabstop=2  " <Tab> inserts 2 spaces.
 set tabstop=2  " Make tabs as wide as 2 spaces.
@@ -23,7 +23,7 @@ autocmd BufWritePre * :%s/\s\+$//ge  " Automatically delete spaces at line end.
 "set mouse=a
 "set clipboard=unnamed
 
-" Window
+" window
 syntax on  " Enable syntax highlighting.
 set number  " Enable line numbers.
 set cursorline  " Highlight current line.
@@ -40,13 +40,13 @@ set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']'}
 set statusline+=%{'['.&ff.']'}
 set statusline+=%y
 
-" Files
+" files
 set nobackup  " Create no backup files.
 set noswapfile  " Create no swap files.
 set autoread  " Automatically read the file changed outside of Vim.
 set hidden
 
-" Search
+" search
 set ignorecase
 set smartcase
 set incsearch

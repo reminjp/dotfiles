@@ -2,19 +2,38 @@
 
 My development environment.
 
-## Usage
+## Requirements
+
+Set bash as your login shell.
 
 ```sh
-# Display available commands.
-make
-
-# Install.
-make install
+chsh -s "$(which bash)"
 ```
 
-### After the Installation
+## Installation
 
-#### [asdf Plugins](https://asdf-vm.com/guide/getting-started.html) (Linux, macOS)
+Run [`install.sh`](./install.sh).
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/rdrgn/dotfiles/HEAD/install.sh)"
+```
+
+See also:
+
+- [Homebrew](https://brew.sh/)
+- [rcm](https://github.com/thoughtbot/rcm)
+
+## Notes
+
+### Recommended external tools
+
+#### [asdf](https://asdf-vm.com/)
+
+```sh
+brew install asdf
+```
+
+Install [asdf plugins](https://asdf-vm.com/guide/getting-started.html). Example:
 
 ```sh
 # Install a plugin.
@@ -42,10 +61,6 @@ brew install iterm2
   - `Space`: `All Spaces`
 - Enable `Preferences -> Keys -> Hotkey -> Show/hide all windows with a system-wide hotkey`.
   - The default hotkey is `Option + Space`.
-
-## Development
-
-See also [b4b4r07/dotfiles](https://github.com/b4b4r07/dotfiles) and [an instruction of it](https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2) (Japanese).
 
 ## License
 

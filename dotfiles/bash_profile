@@ -49,6 +49,7 @@ export PIPENV_VENV_IN_PROJECT=1
 export PIPENV_IGNORE_VIRTUALENVS=1
 
 # Poetry
+[ -d "$HOME/.poetry/bin" ] && PATH="$HOME/.poetry/bin:$PATH"
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # Google Cloud SDK

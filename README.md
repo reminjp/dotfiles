@@ -25,28 +25,7 @@ See also:
 
 ## Notes
 
-### Recommended external tools
-
-#### [asdf](https://asdf-vm.com/)
-
-```sh
-brew install asdf
-```
-
-Install [asdf plugins](https://asdf-vm.com/guide/getting-started.html). Example:
-
-```sh
-# Install a plugin.
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-
-# Install a version.
-asdf install nodejs latest
-
-# Set a version.
-asdf global nodejs latest
-# or
-asdf global nodejs system
-```
+### Recommended additional tools (optional)
 
 #### [iTerm2](https://iterm2.com/) (macOS)
 

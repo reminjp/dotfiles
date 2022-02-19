@@ -71,4 +71,16 @@ else
   env RCRC=$HOME/ghq/github.com/rdrgn/dotfiles/dotfiles/rcrc rcup
 fi
 
+# install asdf
+# https://asdf-vm.com/
+!(type asdf &>/dev/null) && brew install asdf
+
+if asdf current nodejs &>/dev/null; then
+  echo "${BLUE}Info:${RESET} asdf plugin 'nodejs' is already installed."
+else
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  # asdf global nodejs latest:16
+  asdf install nodejs
+fi
+
 exit 0

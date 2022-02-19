@@ -71,15 +71,16 @@ __prompt_command() {
   esac
 
   # colors
-  local color_green color_blue color_warning color_red color_reset
+  local BG_GRAY BLACK RED WHITE EOL RESET
   case "$TERM" in
     xterm-color | *-256color)
-      color_white=$(tput bold)
-      color_red=$(tput setaf 1)$(tput bold)
-      color_green=$(tput setaf 2)$(tput bold)
-      color_yellow=$(tput setaf 3)$(tput bold)
-      color_blue=$(tput setaf 4)$(tput bold)
-      color_reset=$(tput sgr0)
+      GRAY=$(tput setaf 8)$(tput bold)
+      RED=$(tput setaf 9)$(tput bold)
+      GREEN=$(tput setaf 10)$(tput bold)
+      YELLOW=$(tput setaf 11)$(tput bold)
+      BLUE=$(tput setaf 12)$(tput bold)
+      WHITE=$(tput setaf 15)$(tput bold)
+      RESET=$(tput sgr0)
       ;;
   esac
 
@@ -90,17 +91,30 @@ __prompt_command() {
   fi
 
   # update PS1
-  PS1=''
-  PS1+="$color_white\\t$color_reset :: "
-  PS1+='${debian_chroot:+($debian_chroot)}'
-  PS1+="$color_green\\u@\\h$color_reset :: $color_blue\\w$color_reset"
+  PS1="$GREEN${debian_chroot:+($debian_chroot)}\\u@\\h"
+  PS1+=" $BLUE\\w"
   if type __git_ps1 &>/dev/null; then
-    PS1+=$(__git_ps1 " :: $color_yellow%s$color_reset")
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWUPSTREAM=verbose
+    PS1+=$(__git_ps1 " $WHITE%s")
   fi
   if [ $status_code -ne 0 ]; then
-    PS1+=" :: $color_red$status_code ($status_name)$color_reset"
+    PS1+=" $RED$status_code ($status_name)"
   fi
+  PS1+=" $GRAY\\t$RESET"
   PS1+='\n\$ '
+  # PS1=''
+  # PS1+="$color_white\\t$color_reset :: "
+  # PS1+='${debian_chroot:+($debian_chroot)}'
+  # PS1+="$color_green\\u@\\h$color_reset :: $color_blue\\w$color_reset"
+  # if type __git_ps1 &>/dev/null; then
+  #   PS1+=$(__git_ps1 " :: $color_yellow%s$color_reset")
+  # fi
+  # if [ $status_code -ne 0 ]; then
+  #   PS1+=" :: $color_red$status_code ($status_name)$color_reset"
+  # fi
+  # PS1+='\n\$ '
 }
 PROMPT_COMMAND=__prompt_command
 

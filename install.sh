@@ -30,13 +30,13 @@ get_os_name() {
   esac
   echo "$os_name"
 }
+readonly OS_NAME=$(get_os_name)
 
 # install Homebrew
 if type brew &>/dev/null; then
   echo "${BLUE}Info:${RESET} Homebrew is already installed."
 else
-  declare os_name=$(get_os_name)
-  case ${os_name} in
+  case ${OS_NAME} in
     'ubuntu' | 'debian')
       # https://docs.brew.sh/Homebrew-on-Linux
       sudo apt install build-essential curl file git
@@ -47,11 +47,10 @@ else
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       ;;
     *)
-      echo "${RED}Error:${RESET} Unsupported OS: ${os_name}"
+      echo "${RED}Error:${RESET} Unsupported OS: ${OS_NAME}"
       exit 1
       ;;
   esac
-  unset os_name
   brew doctor
 fi
 
@@ -81,6 +80,19 @@ else
   asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   # asdf global nodejs latest:16
   asdf install nodejs
+fi
+
+# install Homebrew casks (macOS)
+if [ "$OS_NAME" = 'mac' ]; then
+  # apps
+  !(brew list --cask iterm2 &>/dev/null) && brew install --cask iterm2
+  !(brew list --cask scroll-reverser &>/dev/null) && brew install --cask scroll-reverser
+  !(type code &>/dev/null) && brew install --cask visual-studio-code
+  !(type docker &>/dev/null) && brew install --cask docker
+  # fonts
+  brew tap homebrew/cask-fonts
+  !(brew list --cask font-jetbrains-mono &>/dev/null) && brew install --cask font-jetbrains-mono
+  !(brew list --cask font-noto-sans-cjk-jp &>/dev/null) && brew install --cask font-noto-sans-cjk-jp
 fi
 
 exit 0

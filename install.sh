@@ -87,7 +87,6 @@ if [ "$OS_NAME" = 'mac' ]; then
   # apps
   !(brew list --cask iterm2 &>/dev/null) && brew install --cask iterm2
   !(brew list --cask scroll-reverser &>/dev/null) && brew install --cask scroll-reverser
-  !(type code &>/dev/null) && brew install --cask visual-studio-code
   !(type docker &>/dev/null) && brew install --cask docker
   # fonts
   brew tap homebrew/cask-fonts

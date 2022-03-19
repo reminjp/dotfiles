@@ -66,8 +66,8 @@ if [ -f "$HOME/.rcrc" ]; then
   echo "${BLUE}Info:${RESET} Dotfiles are already installed."
 else
   brew install rcm
-  ghq get git@github.com:rdrgn/dotfiles.git
-  env RCRC=$HOME/ghq/github.com/rdrgn/dotfiles/dotfiles/rcrc rcup
+  ghq get git@github.com:reminjp/dotfiles.git
+  env RCRC=$HOME/ghq/github.com/reminjp/dotfiles/dotfiles/rcrc rcup
 fi
 
 # install asdf

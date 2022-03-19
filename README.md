@@ -15,7 +15,7 @@ chsh -s "$(which bash)"
 Run [`install.sh`](./install.sh).
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/rdrgn/dotfiles/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/reminjp/dotfiles/HEAD/install.sh)"
 ```
 
 See also:

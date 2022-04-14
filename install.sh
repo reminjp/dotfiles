@@ -35,6 +35,9 @@ readonly OS_NAME=$(get_os_name)
 # install Homebrew
 if type brew &>/dev/null; then
   echo "${BLUE}Info:${RESET} Homebrew is already installed."
+elif type /opt/homebrew/bin/brew &>/dev/null; then
+  echo "${YELLOW}Warn:${RESET} Homebrew is already installed but PATH is not configured yet."
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   case ${OS_NAME} in
     'ubuntu' | 'debian')
@@ -45,6 +48,8 @@ else
     'mac')
       # https://brew.sh/
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      # for M1 Mac
+      type /opt/homebrew/bin/brew &>/dev/null && eval "$(/opt/homebrew/bin/brew shellenv)"
       ;;
     *)
       echo "${RED}Error:${RESET} Unsupported OS: ${OS_NAME}"

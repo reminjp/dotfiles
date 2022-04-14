@@ -161,6 +161,10 @@ f() {
   esac
 }
 
+# Flutter
+type asdf &>/dev/null &&
+  export FLUTTER_ROOT="$(asdf where flutter)"
+
 # Poetry
 type brew &>/dev/null &&
   type poetry &>/dev/null &&

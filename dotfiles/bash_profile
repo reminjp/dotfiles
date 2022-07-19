@@ -65,6 +65,9 @@ fi
 type brew &>/dev/null && [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] &&
   . "$(brew --prefix asdf)/libexec/asdf.sh"
 
+# Yarn
+type yarn &>/dev/null && PATH="$(yarn global bin):$PATH"
+
 # Mac OS
 # suppress the warning "The default interactive shell is now zsh."
 export BASH_SILENCE_DEPRECATION_WARNING=1

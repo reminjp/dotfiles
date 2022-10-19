@@ -60,11 +60,20 @@ else
 fi
 
 # install Homebrew formulae
-[ ! -f "$(brew --prefix)/etc/bash_completion" ] && brew install bash-completion
-!(type dircolors &>/dev/null || type gdircolors &>/dev/null) && brew install coreutils
-!(type fzf &>/dev/null) && brew install fzf
-!(type ghq &>/dev/null) && brew install ghq
-!(type git &>/dev/null) && brew install git
+[ ! -f "$(brew --prefix)/etc/bash_completion" ] && brew install --quiet bash-completion
+!(type dircolors &>/dev/null || type gdircolors &>/dev/null) && brew install --quiet coreutils
+!(type fzf &>/dev/null) && brew install --quiet fzf
+!(type ghq &>/dev/null) && brew install --quiet ghq
+!(type git &>/dev/null) && brew install --quiet git
+
+if [ "$OS_NAME" = 'mac' ]; then
+  # gcc
+  !(g++ --version | grep --ignore-case homebrew &>/dev/null) && brew install --quiet gcc
+  # TODO
+  # ls "$(brew --prefix)/bin" | grep --extended-regexp '^gcc-[0-9]+'
+  # [ -f "$(brew --prefix)/bin/g++-12" ] && ln -fs /usr/local/bin/g++-12 /usr/local/bin/gcc
+  # [ -f "$(brew --prefix)/bin/gcc-12" ] && ln -fs /usr/local/bin/gcc-12 /usr/local/bin/gcc
+fi
 
 # install dotfiles
 if [ -f "$HOME/.rcrc" ]; then
@@ -77,7 +86,7 @@ fi
 
 # install asdf
 # https://asdf-vm.com/
-!(type asdf &>/dev/null) && brew install asdf
+!(type asdf &>/dev/null) && brew install --quiet asdf
 
 if asdf current nodejs &>/dev/null; then
   echo "${BLUE}Info:${RESET} asdf plugin 'nodejs' is already installed."
@@ -90,13 +99,13 @@ fi
 # install Homebrew casks (macOS)
 if [ "$OS_NAME" = 'mac' ]; then
   # apps
-  !(brew list --cask iterm2 &>/dev/null) && brew install --cask iterm2
-  !(brew list --cask scroll-reverser &>/dev/null) && brew install --cask scroll-reverser
-  !(type docker &>/dev/null) && brew install --cask docker
+  brew install --cask --quiet iterm2
+  brew install --cask --quiet scroll-reverser
+  !(type docker &>/dev/null) && brew install --cask --quiet docker
   # fonts
   brew tap homebrew/cask-fonts
-  !(brew list --cask font-jetbrains-mono &>/dev/null) && brew install --cask font-jetbrains-mono
-  !(brew list --cask font-noto-sans-cjk-jp &>/dev/null) && brew install --cask font-noto-sans-cjk-jp
+  brew install --cask --quiet font-jetbrains-mono
+  brew install --cask --quiet font-noto-sans-cjk-jp
 fi
 
 exit 0

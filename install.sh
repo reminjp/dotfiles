@@ -59,8 +59,25 @@ else
   brew doctor
 fi
 
+# install Bash via Homebrew (macOS)
+if [ "$OS_NAME" = 'mac' ]; then
+  !(brew list bash &>/dev/null) && brew install --quiet bash
+
+  brew_bash_path="$(brew --prefix)/bin/bash"
+
+  if ! cat /etc/shells | grep "^$brew_bash_path$"; then
+    echo "${YELLOW}Warn:${RESET} Adding '$brew_bash_path' to '/etc/shells'."
+    echo "$brew_bash_path" | sudo tee -a /etc/shells
+  fi
+
+  if [ "$SHELL" != "$brew_bash_path" ]; then
+    echo "${YELLOW}Warn:${RESET} Changing your shell to '$brew_bash_path'."
+    chsh -s "$brew_bash_path"
+  fi
+fi
+
 # install Homebrew formulae
-[ ! -f "$(brew --prefix)/etc/bash_completion" ] && brew install --quiet bash-completion
+brew install --quiet bash-completion@2
 !(type dircolors &>/dev/null || type gdircolors &>/dev/null) && brew install --quiet coreutils
 !(type fzf &>/dev/null) && brew install --quiet fzf
 !(type ghq &>/dev/null) && brew install --quiet ghq
@@ -101,7 +118,11 @@ if [ "$OS_NAME" = 'mac' ]; then
   # apps
   brew install --cask --quiet iterm2
   brew install --cask --quiet scroll-reverser
-  !(type docker &>/dev/null) && brew install --cask --quiet docker
+  if ! type docker &>/dev/null; then
+    brew install --cask --quiet docker
+    echo "${BLUE}Info:${RESET} Starting Docker.app to install 'docker' command."
+    open /Applications/Docker.app
+  fi
   # fonts
   brew tap homebrew/cask-fonts
   brew install --cask --quiet font-jetbrains-mono

@@ -129,4 +129,10 @@ if [ "$OS_NAME" = 'mac' ]; then
   brew install --cask --quiet font-noto-sans-cjk-jp
 fi
 
+# system preferences (macOS)
+if [ "$OS_NAME" = 'mac' ]; then
+  defaults write .GlobalPreferences com.apple.mouse.scaling -1
+  defaults write .GlobalPreferences com.apple.scrollwheel.scaling -1
+fi
+
 exit 0

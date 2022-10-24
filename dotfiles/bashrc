@@ -162,11 +162,6 @@ f() {
 }
 
 # Flutter
-type asdf &>/dev/null &&
+if type asdf &>/dev/null && asdf where flutter &>/dev/null; then
   export FLUTTER_ROOT="$(asdf where flutter)"
-
-# Poetry
-type brew &>/dev/null &&
-  type poetry &>/dev/null &&
-  [ -d "$(brew --prefix)/etc/bash_completion.d/poetry.bash-completion" ] &&
-  poetry completions bash >$(brew --prefix)/etc/bash_completion.d/poetry.bash-completion
+fi

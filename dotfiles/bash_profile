@@ -19,6 +19,9 @@ type /opt/homebrew/bin/brew &>/dev/null && eval "$(/opt/homebrew/bin/brew shelle
 type ghq &>/dev/null && [ -d "$(ghq root)/github.com/atcoder/ac-library" ] &&
   export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$(ghq root)/github.com/atcoder/ac-library"
 
+# Java
+[ -d "$(brew --prefix openjdk)/bin" ] && PATH="$(brew --prefix openjdk)/bin:$PATH"
+
 # Go
 type go &>/dev/null && [ -d "$(go env GOPATH)/bin" ] &&
   PATH="$(go env GOPATH)/bin:$PATH"
@@ -29,10 +32,6 @@ type go &>/dev/null && [ -d "$(go env GOPATH)/bin" ] &&
 # Ruby
 [ -d "$HOME/.rbenv/bin" ] && PATH="$HOME/.rbenv/bin:$PATH"
 type rbenv &>/dev/null && eval "$(rbenv init -)"
-
-# Node
-[ -d "$HOME/.nodenv/bin" ] && PATH="$HOME/.nodenv/bin:$PATH"
-type nodenv &>/dev/null && eval "$(nodenv init -)"
 
 # Flutter
 type ghq &>/dev/null && [ -d "$(ghq root)/github.com/flutter/flutter/bin" ] &&
@@ -54,6 +53,9 @@ export PIPENV_IGNORE_VIRTUALENVS=1
 # Poetry
 [ -d "$HOME/.poetry/bin" ] && PATH="$HOME/.poetry/bin:$PATH"
 export POETRY_VIRTUALENVS_IN_PROJECT=true
+
+# Python
+[ -d "$(brew --prefix python)/libexec/bin" ] && PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
 # Google Cloud SDK
 if [ -d "$(brew --prefix)/Caskroom/google-cloud-sdk" ]; then

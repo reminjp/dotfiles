@@ -73,15 +73,16 @@ if [ "$OS_NAME" = 'mac' ]; then
   if [ "$SHELL" != "$brew_bash_path" ]; then
     echo "${YELLOW}Warn:${RESET} Changing your shell to '$brew_bash_path'."
     chsh -s "$brew_bash_path"
+    echo "${YELLOW}Warn:${RESET} Done. Please re-login."
   fi
 fi
 
 # install Homebrew formulae
-brew install --quiet bash-completion@2
+# install Homebrew version Git to install `git-completion.bash` and `git-prompt.sh`
+brew install --quiet bash-completion@2 git
 !(type dircolors &>/dev/null || type gdircolors &>/dev/null) && brew install --quiet coreutils
 !(type fzf &>/dev/null) && brew install --quiet fzf
 !(type ghq &>/dev/null) && brew install --quiet ghq
-!(type git &>/dev/null) && brew install --quiet git
 
 if [ "$OS_NAME" = 'mac' ]; then
   # gcc
@@ -125,8 +126,7 @@ if [ "$OS_NAME" = 'mac' ]; then
   fi
   # fonts
   brew tap homebrew/cask-fonts
-  brew install --cask --quiet font-jetbrains-mono
-  brew install --cask --quiet font-noto-sans-cjk-jp
+  brew install --cask --quiet font-jetbrains-mono font-noto-sans-cjk-jp
 fi
 
 # system preferences (macOS)

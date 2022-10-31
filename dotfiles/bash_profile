@@ -69,7 +69,11 @@ type brew &>/dev/null && [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] &&
   . "$(brew --prefix asdf)/libexec/asdf.sh"
 
 # Yarn
-type yarn &>/dev/null && PATH="$(yarn global bin):$PATH"
+if type yarn &>/dev/null; then
+  yarn_global_path="$(yarn global bin)"
+  [[ ":$PATH:" != *"$yarn_global_path"* ]] && PATH="$yarn_global_path:$PATH"
+  unset yarn_global_path
+fi
 
 # Mac OS
 # suppress the warning "The default interactive shell is now zsh."

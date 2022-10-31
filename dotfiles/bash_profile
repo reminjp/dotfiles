@@ -9,6 +9,7 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 # Homebrew
 # M1 Mac
+ls -A /Library/Developer/CommandLineTools/usr/bin &>/dev/null || xcode-select --install
 type /opt/homebrew/bin/brew &>/dev/null && eval "$(/opt/homebrew/bin/brew shellenv)"
 # Linux
 [ -d '/home/linuxbrew/.linuxbrew/bin' ] && PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"

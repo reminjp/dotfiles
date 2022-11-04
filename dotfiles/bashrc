@@ -160,8 +160,3 @@ f() {
       ;;
   esac
 }
-
-# Flutter
-if type asdf &>/dev/null && asdf where flutter &>/dev/null; then
-  export FLUTTER_ROOT="$(asdf where flutter)"
-fi

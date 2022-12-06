@@ -83,6 +83,7 @@ brew install --quiet bash-completion@2 git yarn-completion
 !(type dircolors &>/dev/null || type gdircolors &>/dev/null) && brew install --quiet coreutils
 !(type fzf &>/dev/null) && brew install --quiet fzf
 !(type ghq &>/dev/null) && brew install --quiet ghq
+!(type jq &>/dev/null) && brew install --quiet jq
 
 if [ "$OS_NAME" = 'mac' ]; then
   # gcc

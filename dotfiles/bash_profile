@@ -84,10 +84,10 @@ if [ "$(uname)" = 'Darwin' ]; then
     defaults write .GlobalPreferences com.apple.mouse.scaling -1
     should_re_login=true
   fi
-  if [ "$(defaults read .GlobalPreferences com.apple.scrollwheel.scaling)" != '-1' ]; then
-    defaults write .GlobalPreferences com.apple.scrollwheel.scaling -1
-    should_re_login=true
-  fi
+  # if [ "$(defaults read .GlobalPreferences com.apple.scrollwheel.scaling)" != '-1' ]; then
+  #   defaults write .GlobalPreferences com.apple.scrollwheel.scaling -1
+  #   should_re_login=true
+  # fi
   if $should_re_login; then
     echo "$(tput setaf 3)Warn:$(tput sgr0) Disabled mouse acceleration. Please re-login."
   fi

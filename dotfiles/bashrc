@@ -26,6 +26,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# pnpm
+[ -f "$HOME/.config/tabtab/bash/__tabtab.bash" ] && . "$HOME/.config/tabtab/bash/__tabtab.bash" || true
 
 # prompt
 __prompt_command() {

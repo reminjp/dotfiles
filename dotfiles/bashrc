@@ -26,6 +26,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+# ngrok
+type ngrok &>/dev/null && eval "$(ngrok completion)" || true
 # pnpm
 [ -f "$HOME/.config/tabtab/bash/__tabtab.bash" ] && . "$HOME/.config/tabtab/bash/__tabtab.bash" || true
 

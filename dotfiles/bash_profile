@@ -54,9 +54,9 @@ export POETRY_VIRTUALENVS_IN_PROJECT=true
 [ -d "$(brew --prefix python)/libexec/bin" ] && PATH="$(brew --prefix python)/libexec/bin:$PATH"
 
 # Google Cloud SDK
-if [ -d "$(brew --prefix)/Caskroom/google-cloud-sdk" ]; then
-  . "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
-  . "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+if [ -d "$(brew --prefix)/share/google-cloud-sdk" ]; then
+  . "$(brew --prefix)/share/google-cloud-sdk/path.bash.inc"
+  . "$(brew --prefix)/share/google-cloud-sdk/completion.bash.inc"
 fi
 
 # asdf

@@ -42,8 +42,10 @@ else
   case ${OS_NAME} in
     'ubuntu' | 'debian')
       # https://docs.brew.sh/Homebrew-on-Linux
+      sudo apt update
       sudo apt install build-essential procps curl file git
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       ;;
     'mac')
       # https://brew.sh/

@@ -1,5 +1,6 @@
 [alias]
 	current-branch-name = !git branch | grep -e '^\\* ' | sed -e 's/^\\* //g'
+	commit-empty-message = commit --allow-empty-message -m ''
 	force-pull = !git fetch && git reset --hard origin/$(git current-branch-name)
 	logg = log --graph --pretty=oneline
 [color]

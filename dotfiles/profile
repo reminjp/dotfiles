@@ -23,7 +23,7 @@ type go &>/dev/null && [ -d "$(go env GOPATH)/bin" ] &&
   PATH="$(go env GOPATH)/bin:$PATH"
 
 # Rust
-[ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # Ruby
 [ -d "$HOME/.rbenv/bin" ] && PATH="$HOME/.rbenv/bin:$PATH"

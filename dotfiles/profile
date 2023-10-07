@@ -18,6 +18,10 @@ type ghq &>/dev/null && [ -d "$(ghq root)/github.com/atcoder/ac-library" ] &&
 [ -d "$(brew --prefix openjdk)/bin" ] && PATH="$(brew --prefix openjdk)/bin:$PATH"
 type /usr/libexec/java_home &>/dev/null && export JAVA_HOME="$(/usr/libexec/java_home)"
 
+# JavaScript
+# Deno
+[ -d "$HOME/.deno/bin" ] && PATH="$HOME/.deno/bin:$PATH"
+
 # Go
 type go &>/dev/null && [ -d "$(go env GOPATH)/bin" ] &&
   PATH="$(go env GOPATH)/bin:$PATH"

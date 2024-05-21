@@ -13,6 +13,9 @@ HISTFILESIZE=2000
 # to check window size
 shopt -s checkwinsize
 
+# enable fzf
+type fzf &>/dev/null && eval "$(fzf --bash)"
+
 # enable lesspipe
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 

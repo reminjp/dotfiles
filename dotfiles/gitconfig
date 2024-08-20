@@ -11,6 +11,10 @@
 	excludesfile = ~/.gitignore_global
 	ignorecase = false
 	symlinks = true
+# https://bun.sh/guides/install/git-diff-bun-lockfile
+[diff "lockb"]
+	binary = true
+	textconv = bun
 [init]
 	defaultBranch = master
 [merge]

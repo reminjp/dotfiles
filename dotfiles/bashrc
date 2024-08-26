@@ -5,7 +5,7 @@ case $- in
 esac
 
 # history
-HISTCONTROL=ignoreboth
+HISTCONTROL=erasedups
 shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000

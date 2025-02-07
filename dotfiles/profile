@@ -65,8 +65,8 @@ if [ -d "$(brew --prefix)/share/google-cloud-sdk" ]; then
 fi
 
 # asdf
-type brew &>/dev/null && [ -f "$(brew --prefix asdf)/libexec/asdf.sh" ] &&
-  . "$(brew --prefix asdf)/libexec/asdf.sh"
+export ASDF_DATA_DIR="$HOME/.asdf"
+PATH="$ASDF_DATA_DIR/shims:$(brew --prefix asdf)/bin:$PATH"
 # Flutter
 if type asdf &>/dev/null && asdf where flutter &>/dev/null; then
   export FLUTTER_ROOT="$(asdf where flutter)"

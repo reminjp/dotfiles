@@ -20,6 +20,8 @@ type ghq &>/dev/null && [ -d "$(ghq root)/github.com/atcoder/ac-library" ] &&
 type /usr/libexec/java_home &>/dev/null && export JAVA_HOME="$(/usr/libexec/java_home)"
 
 # JavaScript
+# Bun
+[ -d "$HOME/.bun/bin" ] && PATH="$HOME/.bun/bin:$PATH"
 # Deno
 [ -d "$HOME/.deno/bin" ] && PATH="$HOME/.deno/bin:$PATH"
 

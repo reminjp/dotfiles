@@ -120,7 +120,7 @@ fi
 # install Homebrew casks (macOS)
 if [ "$OS_NAME" = 'mac' ]; then
   # apps
-  brew install --cask --quiet iterm2
+  brew install --cask --quiet ghostty
   brew install --cask --quiet scroll-reverser
   if ! type docker &>/dev/null; then
     brew install --cask --quiet docker

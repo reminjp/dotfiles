@@ -80,7 +80,7 @@ __prompt_command() {
   # colors
   local BG_GRAY BLACK RED WHITE EOL RESET
   case "$TERM" in
-    xterm-color | *-256color)
+    xterm-color | *-256color | xterm-ghostty)
       GRAY=$(tput setaf 8)$(tput bold)
       RED=$(tput setaf 9)$(tput bold)
       GREEN=$(tput setaf 10)$(tput bold)

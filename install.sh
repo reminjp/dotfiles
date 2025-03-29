@@ -128,7 +128,6 @@ if [ "$OS_NAME" = 'mac' ]; then
     open /Applications/Docker.app
   fi
   # fonts
-  brew tap homebrew/cask-fonts
   brew install --cask --quiet font-jetbrains-mono font-noto-sans-cjk-jp
 fi
 
